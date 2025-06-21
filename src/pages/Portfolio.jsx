@@ -8,19 +8,22 @@ const Portfolio = () => {
       id: 1,
       title: "Gothic Web Design",
       description: "A dark, elegant website with modern gothic aesthetics and smooth animations.",
-      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Gothic+Web+Design"
+      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Gothic+Web+Design",
+      tech: ["React", "CSS3", "Framer Motion"]
     },
     {
       id: 2,
       title: "Digital Art Portfolio",
       description: "Interactive portfolio showcasing digital artwork with immersive user experience.",
-      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Digital+Art+Portfolio"
+      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Digital+Art+Portfolio",
+      tech: ["Vue.js", "Three.js", "WebGL"]
     },
     {
       id: 3,
       title: "Minimalist App Interface",
       description: "Clean, minimal interface design focusing on user experience and functionality.",
-      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Minimalist+App"
+      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Minimalist+App",
+      tech: ["React Native", "TypeScript", "Expo"]
     }
   ];
 
@@ -51,6 +54,24 @@ const Portfolio = () => {
             />
             <h2>{project.title}</h2>
             <p>{project.description}</p>
+            {project.tech && (
+              <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                {project.tech.map((tech, index) => (
+                  <span 
+                    key={index}
+                    style={{
+                      fontSize: '0.8rem',
+                      background: 'var(--accent)',
+                      color: 'white',
+                      padding: '0.25rem 0.5rem',
+                      borderRadius: '4px'
+                    }}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
           </motion.div>
         ))}
       </div>
@@ -58,4 +79,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;lio;
+export default Portfolio;
