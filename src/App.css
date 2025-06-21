@@ -1,2 +1,86 @@
-main {
+/* App.css */
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+  --bg: #0f0f1a;
+  --text: #eae6f2;
+  --accent: #a86ad2;
+  --hover: #c72c48;
+  --font-header: 'UnifrakturCook', cursive;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--hover);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background-color: #12121c;
+  border-bottom: 1px solid var(--accent);
+}
+
+.logo {
+  height: 48px;
+  filter: drop-shadow(0 0 2px var(--accent));
+}
+
+.nav a {
+  margin-left: 1.5rem;
+  font-weight: 600;
+}
+
+.App-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.App-main h1 {
+  font-family: var(--font-header);
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.App-main p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.App-footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: #12121c;
+  border-top: 1px solid var(--accent);
 }

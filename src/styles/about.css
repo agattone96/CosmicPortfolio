@@ -1,0 +1,31 @@
+.about-page {
+  padding: 3rem 2rem;
+  max-width: 720px;
+  margin: auto;
+  text-align: left;
+}
+
+.bio h1 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  text-align: center;
+}
+
+.bio p {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.bio .dropcap::first-letter {
+  float: left;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--crimson);
+  margin-right: 0.5rem;
+  line-height: 1;
+  font-family: 'UnifrakturCook', cursive;
+}

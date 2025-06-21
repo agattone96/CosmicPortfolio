@@ -1,0 +1,32 @@
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background-color: #111;
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  height: 48px;
+}
+
+nav a {
+  margin-left: 1.5rem;
+  font-weight: 600;
+  color: #EAE6F2;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #A86AD2;
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: #EAE6F2;
+  font-size: 1.25rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
