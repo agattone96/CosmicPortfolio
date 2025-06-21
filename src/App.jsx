@@ -3,6 +3,9 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import logo from "./assets/logo.png";
+import About from "./pages/About";
+import Portfolio from "./pages/Portfolio";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
@@ -19,8 +22,17 @@ function App() {
         </header>
 
         <main className="App-main">
-          <h1>Enter the Archive</h1>
-          <p>Welcome to my portfolio. Elegant. Gothic. Modern.</p>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <h1>Enter the Archive</h1>
+                <p>Welcome to my portfolio. Elegant. Gothic. Modern.</p>
+              </>
+            } />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
         </main>
 
         <footer className="App-footer">
