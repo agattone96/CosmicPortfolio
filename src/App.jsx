@@ -31,7 +31,7 @@ function AppContent() {
               </motion.div>
             } />
             <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Portfolio />} />
+            <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>

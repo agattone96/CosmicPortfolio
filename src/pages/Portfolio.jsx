@@ -8,19 +8,19 @@ const Portfolio = () => {
       id: 1,
       title: "Gothic Web Design",
       description: "A dark, elegant website with modern gothic aesthetics and smooth animations.",
-      image: "/api/placeholder/400/200"
+      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Gothic+Web+Design"
     },
     {
       id: 2,
       title: "Digital Art Portfolio",
       description: "Interactive portfolio showcasing digital artwork with immersive user experience.",
-      image: "/api/placeholder/400/200"
+      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Digital+Art+Portfolio"
     },
     {
       id: 3,
       title: "Minimalist App Interface",
       description: "Clean, minimal interface design focusing on user experience and functionality.",
-      image: "/api/placeholder/400/200"
+      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Minimalist+App"
     }
   ];
 
