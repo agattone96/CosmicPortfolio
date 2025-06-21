@@ -1,5 +1,4 @@
 
-// pages/Contact.jsx
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -12,8 +11,26 @@ const Contact = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <h1>Get In Touch</h1>
-      <p>Email me at <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+      <section className="contact-section">
+        <h1>⸻ Contact Me ⸻</h1>
+        <p>Have a project, collaboration, or cosmic alignment in mind? Reach out below.</p>
+        <form className="contact-form" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" className="cta">Send Message</button>
+        </form>
+      </section>
     </motion.div>
   );
 };

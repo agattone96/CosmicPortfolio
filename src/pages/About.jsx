@@ -1,5 +1,4 @@
 
-// pages/About.jsx
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -15,7 +14,7 @@ const About = () => {
       <h1>About Me</h1>
       <p>
         I'm a visual alchemist — blending gothic elegance, digital ink, and modern minimalism.
-        My work lives at the intersection of beauty and shadow, where art speaks in bold whispers.
+        My work lives at the intersection of beauty and shadow.
       </p>
     </motion.div>
   );
