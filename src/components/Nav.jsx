@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
+import ThemeToggle from "./ThemeToggle";
 
 const Nav = () => {
   return (
@@ -13,6 +14,7 @@ const Nav = () => {
         <Link to="/about">About</Link>
         <Link to="/projects">Portfolio</Link>
         <Link to="/contact">Contact</Link>
+        <ThemeToggle />
       </nav>
     </header>
   );

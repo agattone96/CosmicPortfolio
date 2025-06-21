@@ -1,74 +1,122 @@
-/* App.css */
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Montserrat:wght@300;400;600&display=swap');
 
+/* App.css */
 :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Theme Variables */
+.dark-theme {
   --bg: #0f0f1a;
   --text: #eae6f2;
   --accent: #a86ad2;
   --hover: #c72c48;
-  --font-header: 'UnifrakturCook', cursive;
-  --font-body: 'Montserrat', sans-serif;
+  --header-bg: #111;
+  --border: #333;
 }
 
-body {
+.light-theme {
+  --bg: #fafafa;
+  --text: #1a1a1a;
+  --accent: #6a42b9;
+  --hover: #b82e58;
+  --header-bg: #fff;
+  --border: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
-  font-family: var(--font-body);
+  padding: 0;
   background-color: var(--bg);
   color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--hover);
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .App-header {
+  background-color: var(--header-bg);
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
-  background-color: #12121c;
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .logo {
   height: 48px;
-  filter: drop-shadow(0 0 2px var(--accent));
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .nav a {
-  margin-left: 1.5rem;
+  color: var(--text);
+  text-decoration: none;
   font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent);
+  color: var(--bg);
 }
 
 .App-main {
   flex: 1;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 3rem 2rem;
   text-align: center;
 }
 
 .App-main h1 {
-  font-family: var(--font-header);
   font-size: 3rem;
   margin-bottom: 1rem;
   color: var(--accent);
+  font-weight: 700;
 }
 
 .App-main p {
@@ -77,10 +125,77 @@ a:hover {
   line-height: 1.6;
 }
 
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
+}
+
+.page p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.page a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.page a:hover {
+  color: var(--hover);
+  text-decoration: underline;
+}
+
 .App-footer {
+  background-color: var(--header-bg);
+  padding: 2rem;
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  background-color: #12121c;
-  border-top: 1px solid var(--accent);
+  border-top: 1px solid var(--border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.App-footer p {
+  margin: 0 0 0.5rem 0;
+  font-style: italic;
+}
+
+.App-footer small {
+  opacity: 0.7;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .App-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .App-main h1 {
+    font-size: 2rem;
+  }
+
+  .App-main p {
+    font-size: 1rem;
+  }
+
+  .page {
+    padding: 1rem;
+  }
+
+  .page h1 {
+    font-size: 2rem;
+  }
 }
