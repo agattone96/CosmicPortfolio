@@ -1,9 +1,7 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 
-const Portfolio = () => {
-  const projects = [
+const projectsData = [
     {
       id: 1,
       title: "Gothic Web Design",
@@ -27,6 +25,20 @@ const Portfolio = () => {
     }
   ];
 
+const Portfolio = () => {
+  const projects = projectsData;
+
+  const handleExportJSON = () => {
+    const data = JSON.stringify(projects, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'portfolio-projects.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <motion.div
       className="page portfolio-page"
@@ -37,7 +49,7 @@ const Portfolio = () => {
     >
       <h1>⸻ Portfolio ⸻</h1>
       <p>A collection of my recent work in digital design and development.</p>
-      
+
       <div className="project-grid">
         {projects.map((project) => (
           <motion.div

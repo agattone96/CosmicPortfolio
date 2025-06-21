@@ -1,6 +1,6 @@
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,16 +18,26 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitMessage('Thank you for your message! I\'ll get back to you soon.');
-      setIsSubmitting(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 1000);
+
+    // EmailJS configuration - replace with your actual IDs
+    const serviceID = 'service_portfolio'; // Replace with your EmailJS service ID
+    const templateID = 'template_contact'; // Replace with your EmailJS template ID
+    const userID = 'your_public_key'; // Replace with your EmailJS public key
+
+    emailjs.sendForm(serviceID, templateID, e.target, userID)
+      .then(() => {
+        setIsSubmitting(false);
+        setSubmitMessage('Thank you for your message! I\'ll get back to you soon.');
+        setFormData({ name: '', email: '', message: '' });
+      })
+      .catch((error) => {
+        setIsSubmitting(false);
+        setSubmitMessage('Failed to send message. Please try again.');
+        console.error('EmailJS error:', error);
+      });
   };
 
   return (
@@ -41,7 +51,7 @@ const Contact = () => {
       <section className="contact-section">
         <h1>⸻ Contact Me ⸻</h1>
         <p>Have a project, collaboration, or cosmic alignment in mind? Reach out below.</p>
-        
+
         {submitMessage && (
           <div style={{ 
             background: 'var(--accent)', 
@@ -53,7 +63,7 @@ const Contact = () => {
             {submitMessage}
           </div>
         )}
-        
+
         <form className="contact-form" onSubmit={handleSubmit}>
           <label>
             Name

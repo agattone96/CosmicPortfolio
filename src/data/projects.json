@@ -1,0 +1,30 @@
+
+[
+  {
+    "id": 1,
+    "title": "Cosmic Web Interface",
+    "image": "/images/project1.jpg",
+    "description": "A dark, ethereal web interface design with animated elements and cosmic aesthetics.",
+    "tech": ["React", "CSS3", "Framer Motion"],
+    "context": "Created for a digital art collective focusing on space-themed visuals.",
+    "outcome": "Increased user engagement by 40% and featured in design showcases."
+  },
+  {
+    "id": 2,
+    "title": "Gothic Portfolio Template",
+    "image": "/images/project2.jpg",
+    "description": "A minimalist portfolio template with dark themes and elegant typography.",
+    "tech": ["HTML", "SCSS", "JavaScript"],
+    "context": "Designed for artists and creatives seeking a sophisticated online presence.",
+    "outcome": "Downloaded 500+ times and adapted by various creative professionals."
+  },
+  {
+    "id": 3,
+    "title": "Ethereal Brand Identity",
+    "image": "/images/project3.jpg",
+    "description": "Complete brand identity system with mystical and modern elements.",
+    "tech": ["Figma", "Illustrator", "Photoshop"],
+    "context": "Branding project for a wellness and meditation app startup.",
+    "outcome": "Helped client secure $50k in seed funding with strong visual identity."
+  }
+]
