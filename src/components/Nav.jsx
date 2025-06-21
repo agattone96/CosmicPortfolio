@@ -2,13 +2,12 @@
 // components/Nav.jsx
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
 import ThemeToggle from "./ThemeToggle";
 
 const Nav = () => {
   return (
     <header className="App-header">
-      <img src={logo} alt="Site Logo" className="logo" />
+      <div className="logo-text">Cosmic Portfolio</div>
       <nav className="nav">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>

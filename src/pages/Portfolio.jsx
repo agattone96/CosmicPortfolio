@@ -2,25 +2,28 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const projects = [
-  {
-    title: 'Popping Peppers',
-    description: 'A spicy, artisanal hot sauce brand built with attitude and alt-food rebellion.',
-    image: '/assets/images/peppers.jpg',
-  },
-  {
-    title: 'Cosmic Chaos Studio',
-    description: 'My personal branding system: rebellious stickercore, gothic elegance, cosmic aesthetic.',
-    image: '/assets/images/cosmic.jpg',
-  },
-  {
-    title: 'Artful Curator',
-    description: 'A SaaS platform for AI-driven image metadata tagging and archive curation.',
-    image: '/assets/images/curator.jpg',
-  }
-];
-
 const Portfolio = () => {
+  const projects = [
+    {
+      id: 1,
+      title: "Gothic Web Design",
+      description: "A dark, elegant website with modern gothic aesthetics and smooth animations.",
+      image: "/api/placeholder/400/200"
+    },
+    {
+      id: 2,
+      title: "Digital Art Portfolio",
+      description: "Interactive portfolio showcasing digital artwork with immersive user experience.",
+      image: "/api/placeholder/400/200"
+    },
+    {
+      id: 3,
+      title: "Minimalist App Interface",
+      description: "Clean, minimal interface design focusing on user experience and functionality.",
+      image: "/api/placeholder/400/200"
+    }
+  ];
+
   return (
     <motion.div
       className="page portfolio-page"
@@ -29,16 +32,28 @@ const Portfolio = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <h1>⸻ Portfolio Archive ⸻</h1>
-      <section className="project-grid">
-        {projects.map((project, index) => (
-          <div key={index} className="project-card">
-            <img src={project.image} alt={project.title} className="project-image" />
+      <h1>⸻ Portfolio ⸻</h1>
+      <p>A collection of my recent work in digital design and development.</p>
+      
+      <div className="project-grid">
+        {projects.map((project) => (
+          <motion.div
+            key={project.id}
+            className="project-card"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: project.id * 0.1 }}
+          >
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="project-image"
+            />
             <h2>{project.title}</h2>
             <p>{project.description}</p>
-          </div>
+          </motion.div>
         ))}
-      </section>
+      </div>
     </motion.div>
   );
 };

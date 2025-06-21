@@ -1,18 +1,35 @@
 
-// components/ThemeToggle.jsx
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    document.documentElement.className = theme + "-theme";
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setIsDark(savedTheme === 'dark');
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = !isDark;
+    setIsDark(newTheme);
+    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
+    
+    if (newTheme) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
 
   return (
-    <button className="theme-toggle" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-      {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
+    <button 
+      onClick={toggleTheme}
+      className="theme-toggle"
+      aria-label="Toggle theme"
+    >
+      {isDark ? '☀️' : '🌙'}
     </button>
   );
 };
