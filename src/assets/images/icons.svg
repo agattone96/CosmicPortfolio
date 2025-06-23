@@ -1,0 +1,16 @@
+
+<svg width="0" height="0" style="position: absolute;">
+  <defs>
+    <symbol id="sparkle" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 0l3 9h9l-7.5 5.5L19 24l-7-5-7 5 2.5-9.5L0 9h9l3-9z"/>
+    </symbol>
+    <symbol id="rocket" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 2L15 8L22 8L16.5 13L18 20L12 16L6 20L7.5 13L2 8L9 8L12 2Z"/>
+    </symbol>
+    <symbol id="cosmic" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1"/>
+      <circle cx="12" cy="12" r="2" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
