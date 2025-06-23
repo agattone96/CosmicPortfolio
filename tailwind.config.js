@@ -1,15 +1,17 @@
+// tailwind.config.js
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       fontFamily: {
-        'unbounded': ['Unbounded', 'sans-serif'],
-        'sora': ['Sora', 'sans-serif'],
+        unbounded: ['Unbounded', 'sans-serif'],
+        sora: ['Sora', 'sans-serif'],
       },
       colors: {
         cosmic: {
@@ -23,12 +25,12 @@ module.exports = {
           green: '#00FF41',
           pink: '#FF0080',
           yellow: '#FFFF00',
-        }
+        },
       },
       animation: {
         'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'glitch': 'glitch 0.3s linear infinite',
+        float: 'float 6s ease-in-out infinite',
+        glitch: 'glitch 0.3s linear infinite',
       },
       keyframes: {
         'pulse-glow': {
@@ -41,11 +43,11 @@ module.exports = {
             boxShadow: '0 0 40px rgba(138, 43, 226, 0.8)',
           },
         },
-        'float': {
-          '0%, 100%': { transform: 'translateY(0px)' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
         },
-        'glitch': {
+        glitch: {
           '0%': { transform: 'translate(0)' },
           '20%': { transform: 'translate(-2px, 2px)' },
           '40%': { transform: 'translate(-2px, -2px)' },
@@ -55,12 +57,12 @@ module.exports = {
         },
       },
       backdropBlur: {
-        'xs': '2px',
+        xs: '2px',
       },
       perspective: {
         '1000': '1000px',
-      }
+      },
     },
   },
   plugins: [],
-}
+};

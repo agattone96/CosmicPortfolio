@@ -1,24 +1,38 @@
 // vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
-// Export Vite configuration
 export default defineConfig({
-  plugins: [react()],
-
+  plugins: [
+    react(),
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
+  },
   server: {
-    // Bind to all interfaces (important for Replit)
     host: '0.0.0.0',
-
-    // Standard Vite port (can be changed if needed)
     port: 5173,
-
-    // Allow external hosts (required for .replit.dev preview)
-    allowedHosts: ["42b6879a-4af5-40bd-bebb-36b9c5e40596-00-3kluhuup6ncdg.worf.replit.dev"],
-
-    // HMR settings for HTTPS tunneling
+    strictPort: true,
+    allowedHosts: ['.replit.dev'],
+    fs: {
+      allow: ['.'],
+    },
     hmr: {
       clientPort: 443,
-    }
-  }
-});
+    },
+  },
+  css: {
+    postcss: './postcss.config.js',
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: true,
+    rollupOptions: {
+      input: path.resolve(__dirname, 'index.html'),
+    },
+  },
+})
