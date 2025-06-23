@@ -18,7 +18,7 @@ const Nav = () => {
 
   return (
     <header className="App-header">
-      <Link to="/" className="logo-text">
+      <Link to="/" className="logo-text-simple">
         Cosmic Portfolio
       </Link>
       
@@ -44,6 +44,7 @@ const Nav = () => {
         className="mobile-menu-button"
         onClick={toggleMobileMenu}
         aria-label="Toggle mobile menu"
+        aria-expanded={mobileMenuOpen}
       >
         <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
           <span></span>
@@ -70,10 +71,34 @@ const Nav = () => {
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
             >
-              <Link to="/" onClick={closeMobileMenu}>Home</Link>
-              <Link to="/about" onClick={closeMobileMenu}>About</Link>
-              <Link to="/portfolio" onClick={closeMobileMenu}>Portfolio</Link>
-              <Link to="/contact" onClick={closeMobileMenu}>Contact</Link>
+              <Link 
+                to="/" 
+                onClick={closeMobileMenu}
+                className={`mobile-nav-link ${location.pathname === "/" ? "active" : ""}`}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/about" 
+                onClick={closeMobileMenu}
+                className={`mobile-nav-link ${location.pathname === "/about" ? "active" : ""}`}
+              >
+                About
+              </Link>
+              <Link 
+                to="/portfolio" 
+                onClick={closeMobileMenu}
+                className={`mobile-nav-link ${location.pathname === "/portfolio" ? "active" : ""}`}
+              >
+                Portfolio
+              </Link>
+              <Link 
+                to="/contact" 
+                onClick={closeMobileMenu}
+                className={`mobile-nav-link ${location.pathname === "/contact" ? "active" : ""}`}
+              >
+                Contact
+              </Link>
               <div className="mobile-theme-toggle">
                 <ThemeToggle />
               </div>
