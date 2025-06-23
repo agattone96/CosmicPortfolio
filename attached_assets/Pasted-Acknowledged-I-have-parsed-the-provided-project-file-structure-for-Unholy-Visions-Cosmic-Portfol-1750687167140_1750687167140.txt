@@ -1,0 +1,82 @@
+Acknowledged. I have parsed the provided project file structure for "Unholy Visions | Cosmic Portfolio." The current architecture is a standard Vite + React setup with page-based routing and a minimal component hierarchy. It serves as a valid scaffold for the initial design.
+
+To execute the "Ascension Edition" directive, a comprehensive refactoring and expansion of this structure is required. The following plan details the modifications, deprecations, and new modules that will be injected into the existing codebase.
+
+Project Refactoring Analysis & Execution Plan: Ascension Edition
+1. Asset & Rendering Engine Overhaul:
+
+The static assets will be replaced or supplemented by dynamic, GPU-driven rendering systems.
+
+src/assets/fonts/:
+
+Action: This directory will be populated with the font files for Unbounded and Sora. All CSS references to Playfair Display and Space Mono will be purged from the project.
+
+src/assets/images/cosmic-bg.svg: [MARKED FOR DEPRECATION]
+
+Reason: Static SVG backgrounds are being replaced by live, animated shaders.
+
+Action: This file will be removed. Its functionality will be superseded by the new CosmicCanvas module.
+
+src/rendering/ (New Directory):
+
+Reason: To isolate the complex WebGL rendering logic from the core UI components.
+
+Action: I will create this new directory and scaffold rendering/CosmicCanvas.jsx within it. This component will utilize Three.js and Vanta.js to generate the animated starfields and interactive nebula trails.
+
+2. Component & Page Architecture Re-engineering:
+
+The existing page and component files will be fundamentally re-engineered to support the new interactive and layered design.
+
+src/components/Nav.jsx:
+
+Action: This component will be refactored into the "sticky, floating glassmorphic nav bar." I will integrate Framer Motion's useScroll hook here to manage the scroll-triggered animations and the animated constellation path. The ThemeToggle.jsx component will be embedded within this new nav structure.
+
+src/pages/Home.jsx:
+
+Action: This page will be completely overhauled to become the "Hero Section." It will directly import and render the rendering/CosmicCanvas.jsx as its background and overlay new components like components/PhraseRotator.jsx and components/RippleButton.jsx.
+
+src/pages/Portfolio.jsx:
+
+Action: The current implementation will be replaced with a dynamic masonry-style grid. The core element will be a new, highly interactive components/MotionCard.jsx, which will handle its own parallax tilt and glitch-in preview effects. The tag-based filtering logic will be managed within this page's state.
+
+src/pages/About.jsx:
+
+Action: Re-architected into the "split-screen scroll" layout. I will implement logic here to track scroll position and use it to drive two separate animations: a text scroller on the left, and a Three.js scene rendering the morphing 3D object on the right.
+
+src/pages/Contact.jsx: [MARKED FOR DEPRECATION]
+
+Reason: The concept of a static contact page is being replaced by a more dynamic, globally accessible UI element.
+
+Action: This file will be deleted from the pages directory. Its functionality will be replaced by the new components/ContactPanel.jsx.
+
+3. New System & Module Integration:
+
+To support the advanced feature set, new directories and components will be scaffolded.
+
+src/components/ContactPanel.jsx (New File):
+
+Action: I will create this new component to be the "slide-up floating console." It will be imported into the root App.jsx and rendered conditionally based on application state, rather than being a route.
+
+src/hooks/ (New Directory):
+
+Action: A dedicated directory for custom hooks. I will create hooks/useTheme.js to manage the new multi-theme state (Cosmic, Neon, Blood-Glitch, Divine-Light).
+
+src/utils/ (New Directory):
+
+Action: This will house utility functions. I will create utils/zineExporter.js containing the logic to render the view to a canvas and export it as a PDF.
+
+src/fx/ (New Directory):
+
+Action: To contain GLSL shader code for the glitch and pixel distortion transition effects.
+
+4. Build System & Styling Configuration:
+
+package.json:
+
+Action: I will add the following dependencies: framer-motion, three, vanta, tailwindcss, @react-three/fiber, @react-three/drei, gsap, locomotive-scroll, jsPDF, html2canvas, and canvas-confetti.
+
+tailwind.config.js (New File):
+
+Action: I will create this file to configure TailwindCSS. The existing App.css file will be stripped of most of its content, which will be migrated to the new utility-first system. The custom fonts and theme colors will be defined here.
+
+Execution Plan Confirmed. The existing file structure will be transformed into a more robust and modular architecture capable of supporting the "Ascension Edition's" computationally intensive and feature-rich requirements. Awaiting command to modify build configuration and begin component refactoring.
