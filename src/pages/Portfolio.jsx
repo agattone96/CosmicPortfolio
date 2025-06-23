@@ -1,94 +1,97 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import "../App.css";
+import projects from "../data/projects.json"; // Ensure your JSON file includes title, description, tags, image
 
-const projectsData = [
-    {
-      id: 1,
-      title: "Gothic Web Design",
-      description: "A dark, elegant website with modern gothic aesthetics and smooth animations.",
-      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Gothic+Web+Design",
-      tech: ["React", "CSS3", "Framer Motion"]
-    },
-    {
-      id: 2,
-      title: "Digital Art Portfolio",
-      description: "Interactive portfolio showcasing digital artwork with immersive user experience.",
-      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Digital+Art+Portfolio",
-      tech: ["Vue.js", "Three.js", "WebGL"]
-    },
-    {
-      id: 3,
-      title: "Minimalist App Interface",
-      description: "Clean, minimal interface design focusing on user experience and functionality.",
-      image: "https://via.placeholder.com/400x200/1a1a1a/a86ad2?text=Minimalist+App",
-      tech: ["React Native", "TypeScript", "Expo"]
-    }
-  ];
+export default function Portfolio() {
+  const [filter, setFilter] = useState("all");
 
-const Portfolio = () => {
-  const projects = projectsData;
-
-  const handleExportJSON = () => {
-    const data = JSON.stringify(projects, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'portfolio-projects.json';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((project) =>
+          project.tags?.map((t) => t.toLowerCase()).includes(filter)
+        );
 
   return (
-    <motion.div
-      className="page portfolio-page"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-    >
-      <h1>⸻ Portfolio ⸻</h1>
-      <p>A collection of my recent work in digital design and development.</p>
+    <div className="portfolio cosmic-theme">
+      {/* 🚀 Page Hero */}
+      <section className="portfolio-hero">
+        <h1 className="headline-glow">The Work That Hits</h1>
+        <p className="subheading-glitch">
+          Branding systems, launch kits, stickers, UI kits, and aesthetic anarchy.
+        </p>
+      </section>
 
-      <div className="project-grid">
-        {projects.map((project) => (
-          <motion.div
-            key={project.id}
-            className="project-card"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: project.id * 0.1 }}
-          >
-            <img 
-              src={project.image} 
-              alt={project.title}
+      {/* 🎛 Filter Bar */}
+      <section className="portfolio-filter">
+        <button
+          className={filter === "all" ? "active" : ""}
+          onClick={() => setFilter("all")}
+        >
+          ✦ All
+        </button>
+        <button
+          className={filter === "branding" ? "active" : ""}
+          onClick={() => setFilter("branding")}
+        >
+          Logos & Identity
+        </button>
+        <button
+          className={filter === "packaging" ? "active" : ""}
+          onClick={() => setFilter("packaging")}
+        >
+          Packaging
+        </button>
+        <button
+          className={filter === "automation" ? "active" : ""}
+          onClick={() => setFilter("automation")}
+        >
+          Automations
+        </button>
+        <button
+          className={filter === "campaign" ? "active" : ""}
+          onClick={() => setFilter("campaign")}
+        >
+          Campaigns
+        </button>
+      </section>
+
+      {/* 🖼️ Project Gallery */}
+      <section className="project-gallery">
+        {filteredProjects.map((project, i) => (
+          <div className="project-card cosmic-card" key={i}>
+            <div
               className="project-image"
+              style={{
+                backgroundImage: `url(${project.image || "/placeholder.png"})`,
+              }}
             />
-            <h2>{project.title}</h2>
-            <p>{project.description}</p>
-            {project.tech && (
-              <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                {project.tech.map((tech, index) => (
-                  <span 
-                    key={index}
-                    style={{
-                      fontSize: '0.8rem',
-                      background: 'var(--accent)',
-                      color: 'white',
-                      padding: '0.25rem 0.5rem',
-                      borderRadius: '4px'
-                    }}
-                  >
-                    {tech}
+            <div className="project-info">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="project-tags">
+                {project.tags?.map((tag, idx) => (
+                  <span key={idx} className="tag">
+                    #{tag}
                   </span>
                 ))}
               </div>
-            )}
-          </motion.div>
+            </div>
+          </div>
         ))}
-      </div>
-    </motion.div>
-  );
-};
+        {filteredProjects.length === 0 && (
+          <div className="no-results">
+            <p>🪐 Nothing in this galaxy yet... try a different filter.</p>
+          </div>
+        )}
+      </section>
 
-export default Portfolio;
+      {/* ✨ Call to Action */}
+      <section className="portfolio-cta cosmic-gradient">
+        <h2>Want to See What Your Brand Could Look Like?</h2>
+        <p>I do bold. I do weird. I do unforgettable. Let’s make it real.</p>
+        <a href="/contact" className="button large glow">Request a Custom Sample</a>
+      </section>
+    </div>
+  );
+}

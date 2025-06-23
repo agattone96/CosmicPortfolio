@@ -1,30 +1,20 @@
-
 [
   {
-    "id": 1,
-    "title": "Cosmic Web Interface",
-    "image": "/images/project1.jpg",
-    "description": "A dark, ethereal web interface design with animated elements and cosmic aesthetics.",
-    "tech": ["React", "CSS3", "Framer Motion"],
-    "context": "Created for a digital art collective focusing on space-themed visuals.",
-    "outcome": "Increased user engagement by 40% and featured in design showcases."
+    "title": "Cosmic Chaos Studio",
+    "description": "Stickercore identity for neurospicy creatives. Loud. Rebellious. Galactic.",
+    "tags": ["branding", "stickers", "campaign"],
+    "image": "/images/cosmic-chaos.jpg"
   },
   {
-    "id": 2,
-    "title": "Gothic Portfolio Template",
-    "image": "/images/project2.jpg",
-    "description": "A minimalist portfolio template with dark themes and elegant typography.",
-    "tech": ["HTML", "SCSS", "JavaScript"],
-    "context": "Designed for artists and creatives seeking a sophisticated online presence.",
-    "outcome": "Downloaded 500+ times and adapted by various creative professionals."
+    "title": "Popping Peppers",
+    "description": "Hot sauce packaging, seed label design, and website brand system.",
+    "tags": ["branding", "packaging"],
+    "image": "/images/popping-peppers.jpg"
   },
   {
-    "id": 3,
-    "title": "Ethereal Brand Identity",
-    "image": "/images/project3.jpg",
-    "description": "Complete brand identity system with mystical and modern elements.",
-    "tech": ["Figma", "Illustrator", "Photoshop"],
-    "context": "Branding project for a wellness and meditation app startup.",
-    "outcome": "Helped client secure $50k in seed funding with strong visual identity."
+    "title": "AI Client Onboarding Flow",
+    "description": "Automated client onboarding stack using ChatGPT + Pipedrive + Google Sheets.",
+    "tags": ["automation", "workflow"],
+    "image": "/images/automation-stack.jpg"
   }
 ]
