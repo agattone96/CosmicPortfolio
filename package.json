@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^8.20.2",
+    "@react-three/fiber": "^8.18.0",
+    "canvas-confetti": "^1.9.3",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^10.16.0",
+    "gsap": "^3.13.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
+    "locomotive-scroll": "^4.1.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet-async": "^2.0.5",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^6.3.0",
+    "three": "^0.177.0",
+    "vanta": "^0.5.24"
   },
   "scripts": {
     "dev": "vite",
@@ -17,6 +26,9 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.10",
     "vite": "^4.0.0"
   }
 }
