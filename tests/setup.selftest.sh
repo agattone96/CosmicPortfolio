@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-fail(){ echo "◇ FAIL: $1"; exit 1; }
+fail(){ echo "◇ FAIL: $1" >&2; exit 1; }
 pass(){ echo "✦ PASS: $1"; }
 REPORT_FILE="/workspace/_codex/setup-report.md"
 LOG_FILE="/workspace/_codex/setup.log"
