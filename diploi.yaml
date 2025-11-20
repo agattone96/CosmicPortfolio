@@ -1,0 +1,11 @@
+# This file is used to build the infrastructure for a deployment.
+# After editing something here, apply the changes on the Diploi dashboard.
+# For more information, see https://diploi.com/yaml
+
+diploiVersion: v1.0
+components:
+  - name: ReactVite
+    identifier: react-vite
+    folder: /
+    package: https://github.com/diploi/component-react-vite#v19.1.1
+addons: []
