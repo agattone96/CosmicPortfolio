@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
 
-const Nav = () => {
+const Nav = ({ onContactClick }) => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,56 +16,70 @@ const Nav = () => {
     setMobileMenuOpen(false);
   };
 
+  const handleContactClick = (e) => {
+    if (onContactClick) {
+      e.preventDefault();
+      onContactClick();
+      closeMobileMenu();
+    }
+  };
+
   return (
     <header className="App-header">
-      <Link to="/" className="logo-text-simple">
-        Cosmic Portfolio
-      </Link>
-      
-      {/* Desktop Navigation */}
-      <nav className="nav desktop-nav">
-        <Link to="/" className={location.pathname === "/" ? "active" : ""}>
-          Home
+      <div className="nav-container">
+        <Link to="/" className="logo-text">
+          Cosmic Portfolio
         </Link>
-        <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>
-          About
-        </Link>
-        <Link to="/portfolio" className={location.pathname === "/portfolio" ? "active" : ""}>
-          Portfolio
-        </Link>
-        <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>
-          Contact
-        </Link>
-        <ThemeToggle />
-      </nav>
+        
+        {/* Desktop Navigation */}
+        <nav className="nav-links">
+          <Link to="/" className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>
+            Home
+          </Link>
+          <Link to="/about" className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}>
+            About
+          </Link>
+          <Link to="/portfolio" className={`nav-link ${location.pathname === "/portfolio" ? "active" : ""}`}>
+            Portfolio
+          </Link>
+          <ThemeToggle />
+          <Link 
+            to="/contact" 
+            className="nav-contact-btn"
+            onClick={handleContactClick}
+          >
+            Contact
+          </Link>
+        </nav>
 
-      {/* Mobile Menu Button */}
-      <button 
-        className="mobile-menu-button"
-        onClick={toggleMobileMenu}
-        aria-label="Toggle mobile menu"
-        aria-expanded={mobileMenuOpen}
-      >
-        <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </button>
+        {/* Mobile Menu Button */}
+        <button 
+          className="mobile-menu-button"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
 
       {/* Mobile Navigation Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
             <motion.div
-              className="mobile-overlay"
+              className={`mobile-overlay ${mobileMenuOpen ? 'open' : ''}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeMobileMenu}
             />
             <motion.nav
-              className="mobile-nav"
+              className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -94,7 +108,10 @@ const Nav = () => {
               </Link>
               <Link 
                 to="/contact" 
-                onClick={closeMobileMenu}
+                onClick={(e) => {
+                  handleContactClick(e);
+                  if (!onContactClick) closeMobileMenu();
+                }}
                 className={`mobile-nav-link ${location.pathname === "/contact" ? "active" : ""}`}
               >
                 Contact
