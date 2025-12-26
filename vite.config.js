@@ -35,4 +35,8 @@ export default defineConfig({
       input: path.resolve(__dirname, 'index.html'),
     },
   },
+  test: {
+    environment: 'jsdom',
+    setupFiles: './tests/setupTests.js',
+  },
 })
