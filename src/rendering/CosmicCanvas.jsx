@@ -1,5 +1,5 @@
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -36,15 +36,22 @@ function NebulaParticles() {
     }
   });
 
-  const particlesGeometry = new THREE.BufferGeometry();
   const particleCount = 5000;
-  const positions = new Float32Array(particleCount * 3);
-  
-  for (let i = 0; i < particleCount * 3; i++) {
-    positions[i] = (Math.random() - 0.5) * 400;
-  }
-  
-  particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  // Memoize buffers so large allocations only happen once per mount.
+  const positions = useMemo(() => {
+    const data = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount * 3; i++) {
+      data[i] = (Math.random() - 0.5) * 400;
+    }
+
+    return data;
+  }, []);
+  const particlesGeometry = useMemo(() => {
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    return geometry;
+  }, [positions]);
 
   return (
     <points ref={particlesRef}>
